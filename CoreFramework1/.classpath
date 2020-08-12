@@ -23,5 +23,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/rdas/Desktop/selenium/selenium_core_frmwrk/SelCoreFrameWork29DecCopy/Jars/mail.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
