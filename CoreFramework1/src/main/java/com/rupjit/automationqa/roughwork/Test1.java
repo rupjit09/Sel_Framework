@@ -1,5 +1,7 @@
 package com.rupjit.automationqa.roughwork;
 
+import org.apache.log4j.Logger;
+
 import com.rupjit.automationqa.util.TestUtil;
 import com.rupjit.automationqa.util.Xls_Reader;
 
@@ -19,6 +21,9 @@ public class Test1 {
 		Xls_Reader Csuite=new Xls_Reader(System.getProperty("user.dir")+"\\src\\main\\java\\com\\rupjit\\automationqa\\data\\C suite.xlsx");
 		System.out.println("TestCase C1 runnable >> "+TestUtil.isCaseRunnable(Asuite, "TestCase C1"));
 
+		System.out.println(System.getProperty("user.dir"));
+		Logger log=Logger.getLogger(Test1.class);
+		log.debug("Testing loging");
 	}
 
 }
