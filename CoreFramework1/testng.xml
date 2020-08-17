@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="My Suite">
+
+  <listeners>
+	<listener class-name="com.rupjit.automationqa.listeners.TestsListenerAdapter"/>
+  </listeners>
+  <suite-files>
+		<suite-file path="./suiteA.xml" />
+		<suite-file path="./suiteB.xml" />
+		<suite-file path="./suiteC.xml" />
+	</suite-files>
+</suite> <!-- Suite -->

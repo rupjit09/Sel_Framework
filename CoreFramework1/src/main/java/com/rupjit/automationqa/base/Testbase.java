@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.testng.annotations.Test;
-
 import com.rupjit.automationqa.util.Xls_Reader;
 
 public class Testbase {
@@ -16,9 +14,11 @@ public static Xls_Reader suitexls;
 public static Xls_Reader Asuitexls;
 public static Xls_Reader Bsuitexls;
 public static Xls_Reader Csuitexls;
+public static boolean isInitialized=false;
 
-@Test
+
 public static void initialize() throws IOException {
+	if(!isInitialized) {
 	//initialize logger for logging
 	log=Logger.getLogger("devpinoyLogger");
 	
@@ -36,5 +36,7 @@ public static void initialize() throws IOException {
 	Bsuitexls=new Xls_Reader(System.getProperty("user.dir")+"\\src\\main\\java\\com\\rupjit\\automationqa\\data\\B suite.xlsx");
 	Csuitexls=new Xls_Reader(System.getProperty("user.dir")+"\\src\\main\\java\\com\\rupjit\\automationqa\\data\\C suite.xlsx");
 	log.debug("XLS files loaded");
+	isInitialized=true;
+	}
 }
 }

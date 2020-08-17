@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite A">
+	<!-- <listeners>
+		<listener
+			class-name="" />
+	</listeners> -->
+	<test name="Testcase A1">
+		<classes>
+			<class
+				name="com.rupjit.automationqa.suiteA.Testcase_A1" />
+		</classes>
+	</test>
+	<test name="Testcase A2">
+		<classes>
+			<class
+				name="com.rupjit.automationqa.suiteA.Testcase_A2" />
+		</classes>
+	</test><!-- Test -->
+</suite> <!-- Suite -->

@@ -1,4 +1,39 @@
-15/08/2020 02:01:56 devpinoyLogger Loading Config.properties file
-15/08/2020 02:01:56 devpinoyLogger Config.properties file loaded
-15/08/2020 02:01:56 devpinoyLogger Loading XLS file
-15/08/2020 02:01:57 devpinoyLogger XLS files loaded
+18/08/2020 01:44:16 devpinoyLogger Loading Config.properties file...
+18/08/2020 01:44:16 devpinoyLogger Config.properties file loaded
+18/08/2020 01:44:16 devpinoyLogger Loading XLS file...
+18/08/2020 01:44:19 devpinoyLogger XLS files loaded
+18/08/2020 01:44:19 devpinoyLogger Checking the runmode of SuiteA
+18/08/2020 01:44:19 devpinoyLogger Checking the runmode of TestCase Testcase_A1
+18/08/2020 01:44:19 devpinoyLogger Executing testcaseA1
+18/08/2020 01:44:19 devpinoyLogger dataA1_1_1---dataA1_1_2---dataA1_1_3---dataA1_1_4---dataA1_1_5
+18/08/2020 01:44:19 devpinoyLogger Executing testcaseA1
+18/08/2020 01:44:19 devpinoyLogger dataA1_2_1---dataA1_2_2---dataA1_2_3---dataA1_2_4---dataA1_2_5
+18/08/2020 01:44:19 devpinoyLogger Runmode of the dataset 3 is set to No, so skipping
+18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 4 is set to No, so skipping
+18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 5 is set to No, so skipping
+18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 6 is set to No, so skipping
+18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 7 is set to No, so skipping
+18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 8 is set to No, so skipping
+18/08/2020 01:44:21 devpinoyLogger Checking the runmode of TestCase Testcase_A2
+18/08/2020 01:44:21 devpinoyLogger Skipping TestCase as runmode is No for testcase Testcase_A2
+18/08/2020 01:44:21 devpinoyLogger Checking the runmode of SuiteB
+18/08/2020 01:44:21 devpinoyLogger Checking the runmode of TestCase Testcase_B1
+18/08/2020 01:44:21 devpinoyLogger Executing testcase Testcase_B1
+18/08/2020 01:44:21 devpinoyLogger Fetching Testdata for Testcase_B1
+18/08/2020 01:44:21 devpinoyLogger dataB1_1_1---dataB1_1_2---dataB1_1_3---dataB1_1_4---dataB1_1_5
+18/08/2020 01:44:22 devpinoyLogger Runmode of the dataset 2 is set to No, so skipping
+18/08/2020 01:44:22 devpinoyLogger Executing testcase Testcase_B1
+18/08/2020 01:44:22 devpinoyLogger Fetching Testdata for Testcase_B1
+18/08/2020 01:44:22 devpinoyLogger dataB1_3_1---dataB1_3_2---dataB1_3_3---dataB1_3_4---dataB1_3_5
+18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 4 is set to No, so skipping
+18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 5 is set to No, so skipping
+18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 6 is set to No, so skipping
+18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 7 is set to No, so skipping
+18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 8 is set to No, so skipping
+18/08/2020 01:44:24 devpinoyLogger Checking the runmode of TestCase Testcase_B2
+18/08/2020 01:44:24 devpinoyLogger Skipping TestCase as runmode is No for testcase Testcase_B2
+18/08/2020 01:44:24 devpinoyLogger Checking the runmode of SuiteC
+18/08/2020 01:44:24 devpinoyLogger Checking the runmode of TestCase Testcase_C1
+18/08/2020 01:44:24 devpinoyLogger Executing testcaseC1
+18/08/2020 01:44:24 devpinoyLogger Checking the runmode of TestCase Testcase_C2
+18/08/2020 01:44:24 devpinoyLogger Skipping TestCase as runmode is No for testcase Testcase_C2
