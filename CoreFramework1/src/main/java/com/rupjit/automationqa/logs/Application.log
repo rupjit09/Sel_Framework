@@ -1,39 +1,37 @@
-18/08/2020 01:44:16 devpinoyLogger Loading Config.properties file...
-18/08/2020 01:44:16 devpinoyLogger Config.properties file loaded
-18/08/2020 01:44:16 devpinoyLogger Loading XLS file...
-18/08/2020 01:44:19 devpinoyLogger XLS files loaded
-18/08/2020 01:44:19 devpinoyLogger Checking the runmode of SuiteA
-18/08/2020 01:44:19 devpinoyLogger Checking the runmode of TestCase Testcase_A1
-18/08/2020 01:44:19 devpinoyLogger Executing testcaseA1
-18/08/2020 01:44:19 devpinoyLogger dataA1_1_1---dataA1_1_2---dataA1_1_3---dataA1_1_4---dataA1_1_5
-18/08/2020 01:44:19 devpinoyLogger Executing testcaseA1
-18/08/2020 01:44:19 devpinoyLogger dataA1_2_1---dataA1_2_2---dataA1_2_3---dataA1_2_4---dataA1_2_5
-18/08/2020 01:44:19 devpinoyLogger Runmode of the dataset 3 is set to No, so skipping
-18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 4 is set to No, so skipping
-18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 5 is set to No, so skipping
-18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 6 is set to No, so skipping
-18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 7 is set to No, so skipping
-18/08/2020 01:44:20 devpinoyLogger Runmode of the dataset 8 is set to No, so skipping
-18/08/2020 01:44:21 devpinoyLogger Checking the runmode of TestCase Testcase_A2
-18/08/2020 01:44:21 devpinoyLogger Skipping TestCase as runmode is No for testcase Testcase_A2
-18/08/2020 01:44:21 devpinoyLogger Checking the runmode of SuiteB
-18/08/2020 01:44:21 devpinoyLogger Checking the runmode of TestCase Testcase_B1
-18/08/2020 01:44:21 devpinoyLogger Executing testcase Testcase_B1
-18/08/2020 01:44:21 devpinoyLogger Fetching Testdata for Testcase_B1
-18/08/2020 01:44:21 devpinoyLogger dataB1_1_1---dataB1_1_2---dataB1_1_3---dataB1_1_4---dataB1_1_5
-18/08/2020 01:44:22 devpinoyLogger Runmode of the dataset 2 is set to No, so skipping
-18/08/2020 01:44:22 devpinoyLogger Executing testcase Testcase_B1
-18/08/2020 01:44:22 devpinoyLogger Fetching Testdata for Testcase_B1
-18/08/2020 01:44:22 devpinoyLogger dataB1_3_1---dataB1_3_2---dataB1_3_3---dataB1_3_4---dataB1_3_5
-18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 4 is set to No, so skipping
-18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 5 is set to No, so skipping
-18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 6 is set to No, so skipping
-18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 7 is set to No, so skipping
-18/08/2020 01:44:23 devpinoyLogger Runmode of the dataset 8 is set to No, so skipping
-18/08/2020 01:44:24 devpinoyLogger Checking the runmode of TestCase Testcase_B2
-18/08/2020 01:44:24 devpinoyLogger Skipping TestCase as runmode is No for testcase Testcase_B2
-18/08/2020 01:44:24 devpinoyLogger Checking the runmode of SuiteC
-18/08/2020 01:44:24 devpinoyLogger Checking the runmode of TestCase Testcase_C1
-18/08/2020 01:44:24 devpinoyLogger Executing testcaseC1
-18/08/2020 01:44:24 devpinoyLogger Checking the runmode of TestCase Testcase_C2
-18/08/2020 01:44:24 devpinoyLogger Skipping TestCase as runmode is No for testcase Testcase_C2
+29/11/2020 02:31:38 devpinoyLogger Loading Config.properties file...
+29/11/2020 02:31:38 devpinoyLogger Config.properties file loaded
+29/11/2020 02:31:38 devpinoyLogger Loading XLS file...
+29/11/2020 02:31:39 devpinoyLogger XLS files loaded
+29/11/2020 02:31:48 devpinoyLogger Before navigating to: 'http://ec2-3-236-75-208.compute-1.amazonaws.com:9090'
+29/11/2020 02:31:55 devpinoyLogger Navigated to:'http://ec2-3-236-75-208.compute-1.amazonaws.com:9090'
+29/11/2020 02:31:55 devpinoyLogger Trying to find Element By : By.id: username
+29/11/2020 02:31:55 devpinoyLogger Found Element By : By.id: username
+29/11/2020 02:31:55 devpinoyLogger Trying to find Element By : By.id: password
+29/11/2020 02:31:55 devpinoyLogger Found Element By : By.id: password
+29/11/2020 02:31:55 devpinoyLogger Trying to find Element By : By.xpath: //button[contains(text(),'Login')]
+29/11/2020 02:31:56 devpinoyLogger Found Element By : By.xpath: //button[contains(text(),'Login')]
+29/11/2020 02:31:56 devpinoyLogger Trying to click on: [[ChromeDriver: chrome on WINDOWS (289f0f453b20360b10a7e7bb6b5b27ff)] -> xpath: //button[contains(text(),'Login')]]
+29/11/2020 02:31:56 devpinoyLogger Clicked on: [[ChromeDriver: chrome on WINDOWS (289f0f453b20360b10a7e7bb6b5b27ff)] -> xpath: //button[contains(text(),'Login')]]
+29/11/2020 02:31:56 devpinoyLogger Trying to find Element By : By.xpath: //ul[@id='zdp-menu']//descendant::div[contains(text(),'CONSUME')]
+29/11/2020 02:31:58 devpinoyLogger Found Element By : By.xpath: //ul[@id='zdp-menu']//descendant::div[contains(text(),'CONSUME')]
+29/11/2020 02:31:58 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
+29/11/2020 02:31:58 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
+29/11/2020 02:31:58 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
+29/11/2020 02:31:59 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
+29/11/2020 02:31:59 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
+29/11/2020 02:31:59 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
+29/11/2020 02:31:59 devpinoyLogger Trying to click on: [[ChromeDriver: chrome on WINDOWS (289f0f453b20360b10a7e7bb6b5b27ff)] -> xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]]
+29/11/2020 02:31:59 devpinoyLogger Clicked on: [[ChromeDriver: chrome on WINDOWS (289f0f453b20360b10a7e7bb6b5b27ff)] -> xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]]
+29/11/2020 02:32:02 devpinoyLogger Trying to find Element By : By.xpath: //button[contains(text(),'WORKFLOW')]
+29/11/2020 02:32:02 devpinoyLogger Found Element By : By.xpath: //button[contains(text(),'WORKFLOW')]
+29/11/2020 02:32:02 devpinoyLogger Trying to click on: [[ChromeDriver: chrome on WINDOWS (289f0f453b20360b10a7e7bb6b5b27ff)] -> xpath: //button[contains(text(),'WORKFLOW')]]
+29/11/2020 02:32:03 devpinoyLogger Clicked on: [[ChromeDriver: chrome on WINDOWS (289f0f453b20360b10a7e7bb6b5b27ff)] -> xpath: //button[contains(text(),'WORKFLOW')]]
+29/11/2020 02:32:03 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='controls-wrapper']//descendant::div[@class='control-element zi-popular']
+29/11/2020 02:32:03 devpinoyLogger Found Element By : By.xpath: //div[@class='controls-wrapper']//descendant::div[@class='control-element zi-popular']
+29/11/2020 02:32:03 devpinoyLogger Trying to find Element By : By.xpath: //div[contains(text(),'Shell')]
+29/11/2020 02:32:05 devpinoyLogger Found Element By : By.xpath: //div[contains(text(),'Shell')]
+29/11/2020 02:32:06 devpinoyLogger Trying to find Element By : By.xpath: //div[contains(text(),'Shell')]
+29/11/2020 02:32:06 devpinoyLogger Found Element By : By.xpath: //div[contains(text(),'Shell')]
+29/11/2020 02:32:07 devpinoyLogger Trying to find Element By : By.xpath: (//div[@class='sidebar-header'])[1]//descendant::div[@class='header-title']
+29/11/2020 02:32:07 devpinoyLogger Found Element By : By.xpath: (//div[@class='sidebar-header'])[1]//descendant::div[@class='header-title']
+29/11/2020 02:32:07 devpinoyLogger Action Name is=Shell Action

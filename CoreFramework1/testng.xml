@@ -5,10 +5,20 @@
 
   <listeners>
 	<listener class-name="com.rupjit.automationqa.listeners.TestsListenerAdapter"/>
+	<listener class-name="com.rupjit.automationqa.listeners.ExtentReportListener"/>
   </listeners>
-  <suite-files>
+  <!-- <suite-files>
 		<suite-file path="./suiteA.xml" />
 		<suite-file path="./suiteB.xml" />
 		<suite-file path="./suiteC.xml" />
-	</suite-files>
+	</suite-files> -->
+	<test name="Testing">
+		<classes>
+<!-- 			<class name="com.rupjit.automationqa.testcases.LoginPageTest"></class>
+			<class name="com.rupjit.automationqa.testcases.HomePageTest"></class> -->
+			<class name="com.rupjit.automationqa.testcases.WorkflowDesignerPageTest"></class>
+		</classes>
+	
+	</test>
+
 </suite> <!-- Suite -->

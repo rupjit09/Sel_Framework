@@ -1,7 +1,7 @@
 package com.rupjit.automationqa.pages;
 
-import com.rupjit.automationqa.base.Testbase;
+import com.rupjit.automationqa.base.TestBase;
 
-public class TestPagebase extends Testbase{
+public class TestPagebase extends TestBase{
 
 }
