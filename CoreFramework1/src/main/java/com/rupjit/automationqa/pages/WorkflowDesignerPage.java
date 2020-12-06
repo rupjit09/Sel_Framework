@@ -9,7 +9,7 @@ import com.rupjit.automationqa.base.TestBase;
 
 public class WorkflowDesignerPage extends TestBase{
 	
-	public enum wfAction{
+	public enum WfAction{
 		SHELL,PYTHON
 	}
 	
@@ -46,7 +46,7 @@ public class WorkflowDesignerPage extends TestBase{
 	}
 	
 	
-	public Object dragWfActionToWfDesigner(wfAction name) {
+	public Object dragWfActionToWfDesigner(WfAction name) {
 		switch(name) {
 		case SHELL:
 		{

@@ -34,7 +34,7 @@ public static boolean isInitialized=false;
 //
 public static WebDriver driver;
 public static Properties prop;
-public static JavascriptExecutor jsDriver;
+public static JavascriptExecutor js;
 public static NgWebDriver ngDriver;
 public static Actions action;
 public static WebDriverWait wait;
@@ -85,8 +85,8 @@ public static void initialize() throws IOException {
 	driver.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("implicit_wait")), TimeUnit.SECONDS);
 	driver.manage().deleteAllCookies();
 	driver.get(prop.getProperty("url"));
-	jsDriver=(JavascriptExecutor) driver;
-	ngDriver=new NgWebDriver(jsDriver);
+	js=(JavascriptExecutor) driver;
+	ngDriver=new NgWebDriver(js);
 }
 
 
