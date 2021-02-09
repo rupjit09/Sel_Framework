@@ -225,5 +225,10 @@ public class ShellActionPage extends TestBase{
 		
 	}
 	
+	public void clickOKButton() {
+		OKButton.click();
+		
+	}
+	
 }
 

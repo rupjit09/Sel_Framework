@@ -1,5 +1,10 @@
 package com.rupjit.automationqa.pages;
 
+import java.util.HashMap;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,12 +13,13 @@ import com.rupjit.automationqa.base.TestBase;
 
 
 public class WorkflowDesignerPage extends TestBase{
-	
 	public enum WfAction{
-		SHELL,PYTHON
+		start,shellAction,pythonAction,stop
 	}
 	
 	WorkflowListingPage wfListPage;
+	@FindBy(xpath="//div[@class='z-inplace-editor']//descendant::div")
+	WebElement wfName;
 	
 	@FindBy(xpath="//div[@class='controls-wrapper']//descendant::div[@class='control-element zi-controls']")
 	WebElement ControlsPanel;
@@ -33,6 +39,10 @@ public class WorkflowDesignerPage extends TestBase{
 	@FindBy(xpath="//div[@class='controls-wrapper']//descendant::div[@class='control-element zi-quality']")
 	WebElement QualityPanel;
 	
+	//ControlPanel Actions
+	@FindBy(xpath="//div[contains(text(),'Start')]")
+	WebElement StartAction;
+	
 	//Popular actions
 	@FindBy(xpath="//div[contains(text(),'Shell')]")
 	WebElement ShellAction;
@@ -48,14 +58,23 @@ public class WorkflowDesignerPage extends TestBase{
 	
 	public Object dragWfActionToWfDesigner(WfAction name) {
 		switch(name) {
-		case SHELL:
+		case start:
+		{
+			moveMouseTo(ControlsPanel);
+			waitForVisibilityOfElement(StartAction);
+			dragAndDrop(StartAction, 150, 10 );
+			
+			return new ShellActionPage();
+		}
+		
+		case shellAction:
 		{
 			moveMouseTo(PopularPanel);
 			waitForVisibilityOfElement(ShellAction);
 			dragAndDrop(ShellAction, 150, 10 );
 			return new ShellActionPage();
 		}
-		case PYTHON:
+		case pythonAction:
 		{
 			moveMouseTo(PopularPanel);
 			waitForVisibilityOfElement(PythonAction);
@@ -68,5 +87,42 @@ public class WorkflowDesignerPage extends TestBase{
 			return "Incorrect Workflow Action Passed as Argument";
 		}
 		}
+	}
+	
+	private static HashMap<String, WebElement> getNodeLocation(String actionName){
+		WebElement action=driver.findElement(By.xpath("//*[contains(@class,'zdp_"+actionName+"')][1]"));
+		int xnode1=Integer.parseInt(action.getAttribute("x"));
+		int ynode1=Integer.parseInt(action.getAttribute("y"));
+		int cx_input=xnode1;
+		int cy_input=ynode1+20;
+		int cx_output=xnode1+40;
+		int cy_output=ynode1+20;
+		HashMap<String,WebElement> ports=new HashMap<String, WebElement>();
+
+		if(!actionName.equalsIgnoreCase("start")) {
+		WebElement inputPort=driver.findElement(By.xpath("//*[@class='draw2d_InputPort' and @cx='"+cx_input+"' and @cy='"+cy_input+"']"));
+		ports.put("inputPort", inputPort);
+		}
+		if(!actionName.equalsIgnoreCase("stop")) {
+		WebElement outputPort=driver.findElement(By.xpath("//*[@class='draw2d_OutputPort' and @cx='"+cx_output+"' and @cy='"+cy_output+"']"));
+		ports.put("outputPort", outputPort);
+		}
+		return ports;				
+	}
+	
+	public void joinWfActionPorts(WfAction fromSourceNode,WfAction toDestinationNode){		
+		WebElement source=	getNodeLocation(fromSourceNode.toString()).get("outputPort");
+		WebElement target=getNodeLocation(toDestinationNode.toString()).get("inputPort");
+		dragAndDrop1(source, target);	 
+	}
+	
+	public void setWfName(String Wfname) {
+		/*wfName.click();
+		wfName.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		wfName.sendKeys(Wfname);*/
+		
+		String js = "arguments[0].setAttribute('value','"+Wfname+"')";
+		((JavascriptExecutor) driver).executeScript(js, wfName);
+		
 	}
 }

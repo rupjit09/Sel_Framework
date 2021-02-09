@@ -100,6 +100,11 @@ public static void dragAndDrop(WebElement source,int xOffset,int yOffset) {
 	action.dragAndDropBy(source, xOffset, yOffset).build().perform();
 }
 
+public static void dragAndDrop1(WebElement source,WebElement target) {
+	action=new Actions(driver);
+	action.dragAndDrop(source, target).build().perform();
+}
+
 public static void waitForVisibilityOfElement(WebElement element) {
 	wait=new WebDriverWait(driver, 30);
 	wait.until(ExpectedConditions.visibilityOf(element));

@@ -29,7 +29,7 @@ public class PythonActionFormTest extends TestBase{
 		homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
 		wflistPage=homepage.navigateToWorkflowListingPage();
 		wfDesignerPage=wflistPage.navigateToWfDesignerPage();
-		pythonActionForm=(PythonActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.PYTHON);
+		pythonActionForm=(PythonActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.pythonAction);
 
 	}
 	@Test

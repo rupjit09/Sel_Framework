@@ -32,7 +32,7 @@ public class ShellActionFormTest extends TestBase{
 		homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
 		wflistPage=homepage.navigateToWorkflowListingPage();
 		wfDesignerPage=wflistPage.navigateToWfDesignerPage();
-		shellActionForm=(ShellActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.SHELL);
+		shellActionForm=(ShellActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
 
 	}
 	@Test

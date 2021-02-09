@@ -9,9 +9,11 @@ import org.testng.annotations.Test;
 import com.rupjit.automationqa.base.TestBase;
 import com.rupjit.automationqa.pages.HomePage;
 import com.rupjit.automationqa.pages.LoginPage;
+import com.rupjit.automationqa.pages.ShellActionPage;
 import com.rupjit.automationqa.pages.WorkflowDesignerPage;
 import com.rupjit.automationqa.pages.WorkflowDesignerPage.WfAction;
 import com.rupjit.automationqa.pages.WorkflowListingPage;
+import com.rupjit.automationqa.pages.ShellActionPage.EnterValueAt;
 
 public class WorkflowDesignerPageTest extends TestBase{
 	HomePage homepage;
@@ -26,17 +28,31 @@ public class WorkflowDesignerPageTest extends TestBase{
 		wfDesignerPage=wflistPage.navigateToWfDesignerPage();
 
 	}
-	@Test
+	//@Test
 	public void dragShellAction() {
-		wfDesignerPage.dragWfActionToWfDesigner(WfAction.SHELL);
+		wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
+	}
+	//@Test
+	public void dragPythonAction() {
+		wfDesignerPage.dragWfActionToWfDesigner(WfAction.pythonAction);
 	}
 	@Test
-	public void dragPythonAction() {
-		wfDesignerPage.dragWfActionToWfDesigner(WfAction.PYTHON);
+	public void saveShellWf() {
+		wfDesignerPage.dragWfActionToWfDesigner(WfAction.start);
+		wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
+		ShellActionPage sh=new ShellActionPage();
+		sh.fillText(EnterValueAt.STEPNAME, "StepNameAutomation");
+		sh.fillText(EnterValueAt.DESCRIPTION,"Create Via Ui Automation");
+		sh.fillText(EnterValueAt.SCRIPTCONTENT,"echo \"hello\"");
+		sh.clickOKButton();
+		wfDesignerPage.joinWfActionPorts(WfAction.start, WfAction.shellAction);
+		wfDesignerPage.joinWfActionPorts(WfAction.shellAction, WfAction.stop);
+		wfDesignerPage.setWfName("test123");
+		
 	}
 	
 	@AfterMethod
 	public void closeBrowser() {
-		driver.quit();
+		//driver.quit();
 	}
 }
