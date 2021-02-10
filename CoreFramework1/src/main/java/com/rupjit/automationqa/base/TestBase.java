@@ -40,6 +40,7 @@ public static Actions action;
 public static WebDriverWait wait;
 public static EventFiringWebDriver eventDriver;
 public static WebEventListener eventListener;
+public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 
 
 public static void initialize() throws IOException {
@@ -84,9 +85,14 @@ public static void initialize() throws IOException {
 	driver.manage().timeouts().pageLoadTimeout(Long.parseLong(prop.getProperty("page_load_timeout")), TimeUnit.SECONDS);
 	driver.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("implicit_wait")), TimeUnit.SECONDS);
 	driver.manage().deleteAllCookies();
+	tdriver.set(driver);
 	driver.get(prop.getProperty("url"));
 	js=(JavascriptExecutor) driver;
 	ngDriver=new NgWebDriver(js);
+}
+
+public static synchronized WebDriver getDriver() {
+	return tdriver.get();
 }
 
 

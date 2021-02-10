@@ -19,7 +19,10 @@ public class WorkflowDesignerPage extends TestBase{
 	
 	WorkflowListingPage wfListPage;
 	@FindBy(xpath="//div[@class='z-inplace-editor']//descendant::div")
-	WebElement wfName;
+	WebElement wfNameBox;
+	
+	@FindBy(xpath="//button[@id='save-wf']")
+	WebElement saveWfButton;
 	
 	@FindBy(xpath="//div[@class='controls-wrapper']//descendant::div[@class='control-element zi-controls']")
 	WebElement ControlsPanel;
@@ -116,13 +119,17 @@ public class WorkflowDesignerPage extends TestBase{
 		dragAndDrop1(source, target);	 
 	}
 	
-	public void setWfName(String Wfname) {
-		/*wfName.click();
-		wfName.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		wfName.sendKeys(Wfname);*/
-		
-		String js = "arguments[0].setAttribute('value','"+Wfname+"')";
-		((JavascriptExecutor) driver).executeScript(js, wfName);
-		
+	public void setWfName(String Wfname) throws InterruptedException {
+		action.moveToElement(wfNameBox).click().build().perform();
+		action.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0061')).build().perform();
+		Thread.sleep(2000);
+		action.keyUp(Keys.CONTROL).build().perform();
+		action.moveToElement(wfNameBox).sendKeys(Keys.BACK_SPACE).build().perform();
+		Thread.sleep(2000);
+		action.moveToElement(wfNameBox).click().sendKeys(Wfname).build().perform();
+		}
+	
+	public void clickSaveWFButton() {
+		saveWfButton.click();
 	}
 }
