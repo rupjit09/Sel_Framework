@@ -41,28 +41,23 @@ public class TestAllureListener implements ITestListener {
 		return html;
 	}
 
-	@Override
 	public void onStart(ITestContext iTestContext) {
 		//System.out.println("I am in onStart method " + iTestContext.getName());
 		iTestContext.setAttribute("WebDriver", TestBase.getDriver());
 	}
 
-	@Override
 	public void onFinish(ITestContext iTestContext) {
 		System.out.println("Test method " + iTestContext.getName()+ " completed");
 	}
 
-	@Override
 	public void onTestStart(ITestResult iTestResult) {
 		System.out.println("Test method " + getTestMethodName(iTestResult) + " started");
 	}
 
-	@Override
 	public void onTestSuccess(ITestResult iTestResult) {
 		System.out.println("Test method " + getTestMethodName(iTestResult) + " success");
 	}
 
-	@Override
 	public void onTestFailure(ITestResult iTestResult) {
 		Object testClass = iTestResult.getInstance();
 		WebDriver driver = TestBase.getDriver();
@@ -74,12 +69,10 @@ public class TestAllureListener implements ITestListener {
 		saveTextLog(getTestMethodName(iTestResult) + " failed and screenshot taken!");	
 	}
 
-	@Override
 	public void onTestSkipped(ITestResult iTestResult) {
 		System.out.println("Skipped method " + getTestMethodName(iTestResult) + " skipped");
 	}
 
-	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
 		System.out.println("Test failed but it is in defined success ratio " + getTestMethodName(iTestResult));
 	}

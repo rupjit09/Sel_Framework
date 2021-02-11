@@ -5,11 +5,7 @@
   <groupId>com.rupjit.automationqa</groupId>
   <artifactId>CoreFramework1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-
-  <name>CoreFramework1</name>
-  <url>http://maven.apache.org</url>
-
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <aspectj.version>1.8.10</aspectj.version>
@@ -25,7 +21,7 @@
     <groupId>io.github.bonigarcia</groupId>
     <artifactId>webdrivermanager</artifactId>
     <version>4.0.0</version>
-    <scope>test</scope>
+    <scope>compile</scope>
 </dependency>
 <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
 
@@ -34,7 +30,7 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>6.14.3</version>
-    <scope>test</scope>
+    <scope>compile</scope>
 </dependency>
 <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
 <dependency>
@@ -120,6 +116,12 @@
     <artifactId>activation</artifactId>
     <version>1.1.1</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.7</version>
+</dependency>
 
 <!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
 <dependency>
@@ -135,21 +137,26 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.20</version>
+            <version>3.0.0-M5</version>
             <configuration>
-                <argLine>
+            	<suiteXmlFiles>
+            	<suiteXmlFile>testng.xml</suiteXmlFile>
+            	</suiteXmlFiles>
+            	<argLine>
                     -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                 </argLine>
-                <suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
-				</suiteXmlFiles>
-            </configuration>
+             </configuration>
             <dependencies>
                 <dependency>
                     <groupId>org.aspectj</groupId>
                     <artifactId>aspectjweaver</artifactId>
                     <version>${aspectj.version}</version>
                 </dependency>
+                <dependency>
+            		<groupId>org.apache.maven.surefire</groupId>
+            		<artifactId>surefire-testng</artifactId>
+            		<version>3.0.0-M5</version>
+          		</dependency>
             </dependencies>
         </plugin>
     </plugins>

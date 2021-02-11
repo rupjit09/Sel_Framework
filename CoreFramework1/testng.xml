@@ -6,6 +6,8 @@
   <listeners>
 	<listener class-name="com.rupjit.automationqa.listeners.TestsListenerAdapter"/>
 	<listener class-name="com.rupjit.automationqa.listeners.ExtentReportListener"/>
+	<listener class-name="com.rupjit.automationqa.listeners.TestAllureListener"/>
+	<listener class-name="com.rupjit.automationqa.listeners.AnnotationTransformer"/>
   </listeners>
   <!-- <suite-files>
 		<suite-file path="./suiteA.xml" />
