@@ -20,6 +20,7 @@ public class WorkflowListingPage  extends TestBase{
 	public WorkflowDesignerPage navigateToWfDesignerPage() {
 		//waitForVisibilityOfElement(addNewWorkflow);
 		addNewWorkflow.click();
+		ngDriver.waitForAngularRequestsToFinish();
 		return new WorkflowDesignerPage();
 	}
 }

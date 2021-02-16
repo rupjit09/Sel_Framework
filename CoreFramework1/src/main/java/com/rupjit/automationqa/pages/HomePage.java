@@ -1,5 +1,6 @@
 package com.rupjit.automationqa.pages;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -67,7 +68,12 @@ public class HomePage  extends TestBase{
 	
 	public EntityListPage navigateToEntityListingPage() {
 		moveMouseTo(catalog);
+		try {
 		waitForVisibilityOfElement(Entities);
+		}catch(TimeoutException e){
+			moveMouseTo(catalog);
+			waitForVisibilityOfElement(Entities);
+		}
 		Entities.click();
 		ngDriver.waitForAngularRequestsToFinish();
 		return new EntityListPage();
@@ -75,7 +81,12 @@ public class HomePage  extends TestBase{
 	
 	public WorkflowListingPage navigateToWorkflowListingPage() {
 		moveMouseTo(consume);
+		try {
 		waitForVisibilityOfElement(ManageWorkflow);
+		}catch (TimeoutException e) {
+			moveMouseTo(consume);	
+			waitForVisibilityOfElement(ManageWorkflow);
+		}
 		ManageWorkflow.click();
 		ngDriver.waitForAngularRequestsToFinish();
 		return new WorkflowListingPage();

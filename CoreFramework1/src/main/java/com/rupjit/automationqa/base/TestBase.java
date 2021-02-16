@@ -84,8 +84,7 @@ public static void initialize() throws IOException, InterruptedException {
 		options.addArguments("--dns-prefetch-disable");
 		options.addArguments("--disable-gpu");
 		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-		tdriver.set(new ChromeDriver(options));
-		//driver = new ChromeDriver(options);
+		driver = new ChromeDriver(options);
 	}else if(browsername.equalsIgnoreCase("firefox")) {
 		WebDriverManager.firefoxdriver().setup();
 		FirefoxOptions options = new FirefoxOptions().addPreference("security.insecure_field_warning.contextual.enabled", false);
