@@ -8,6 +8,7 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import com.rupjit.automationqa.base.TestBase;
 
@@ -116,7 +117,7 @@ public class TestUtil extends TestBase{
 				}
 				
 				
-				public static String getScreenhot(String screenshotName) throws Exception {
+				public static String getScreenhot(WebDriver driver,String screenshotName) throws Exception {
 					String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 					TakesScreenshot ts = (TakesScreenshot) driver;
 					File source = ts.getScreenshotAs(OutputType.FILE);

@@ -21,17 +21,13 @@ import com.rupjit.automationqa.pages.WorkflowListingPage;
 import io.qameta.allure.Description;
 
 public class ShellActionFormTest extends TestBase{
-	HomePage homepage;
-	WorkflowListingPage wflistPage;
 	WorkflowDesignerPage wfDesignerPage;
 	ShellActionPage shellActionForm;
 
 	@BeforeMethod
-	public void setUp() throws IOException {
+	public void setUp() throws Exception {
 		initialize();
-		homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
-		wflistPage=homepage.navigateToWorkflowListingPage();
-		wfDesignerPage=wflistPage.navigateToWfDesignerPage();
+		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
 		shellActionForm=(ShellActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
 
 	}

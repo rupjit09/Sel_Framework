@@ -66,7 +66,7 @@ public class WorkflowDesignerPage extends TestBase{
 			moveMouseTo(ControlsPanel);
 			waitForVisibilityOfElement(StartAction);
 			dragAndDrop(StartAction, 150, 10 );
-			
+			ngDriver.waitForAngularRequestsToFinish();
 			return new ShellActionPage();
 		}
 		
@@ -116,7 +116,7 @@ public class WorkflowDesignerPage extends TestBase{
 	public void joinWfActionPorts(WfAction fromSourceNode,WfAction toDestinationNode){		
 		WebElement source=	getNodeLocation(fromSourceNode.toString()).get("outputPort");
 		WebElement target=getNodeLocation(toDestinationNode.toString()).get("inputPort");
-		dragAndDrop1(source, target);	 
+		dragAndDrop(source, target);	 
 	}
 	
 	public void setWfName(String Wfname) throws InterruptedException {
@@ -131,5 +131,6 @@ public class WorkflowDesignerPage extends TestBase{
 	
 	public void clickSaveWFButton() {
 		saveWfButton.click();
+		ngDriver.waitForAngularRequestsToFinish();
 	}
 }

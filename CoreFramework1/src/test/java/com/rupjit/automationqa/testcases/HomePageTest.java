@@ -18,7 +18,7 @@ public class HomePageTest extends TestBase{
 
 	HomePage homepage;
 	@BeforeMethod
-	public void setup() throws IOException {
+	public void setup() throws Exception {
 		initialize();
 		homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
 	}

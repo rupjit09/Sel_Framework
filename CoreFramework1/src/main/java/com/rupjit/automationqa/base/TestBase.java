@@ -7,10 +7,15 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,7 +48,7 @@ public static WebEventListener eventListener;
 public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 
 
-public static void initialize() throws IOException {
+public static void initialize() throws IOException, InterruptedException {
 	if(!isInitialized) {
 	//initialize logger for logging
 	log=Logger.getLogger("devpinoyLogger");
@@ -70,10 +75,22 @@ public static void initialize() throws IOException {
 	if(browsername.equalsIgnoreCase("chrome"))
 	{
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		ChromeOptions options=new ChromeOptions();
+		options.addArguments("enable-automation");
+		//options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-browser-side-navigation");
+		options.addArguments("--disable-extensions");
+		options.addArguments("--dns-prefetch-disable");
+		options.addArguments("--disable-gpu");
+		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+		tdriver.set(new ChromeDriver(options));
+		//driver = new ChromeDriver(options);
 	}else if(browsername.equalsIgnoreCase("firefox")) {
 		WebDriverManager.firefoxdriver().setup();
-		driver = new FirefoxDriver();
+		FirefoxOptions options = new FirefoxOptions().addPreference("security.insecure_field_warning.contextual.enabled", false);
+		driver = new FirefoxDriver(options);
+		
 	}
 	eventDriver =new EventFiringWebDriver(driver);
 	//Create object of WebEventListener class to register it with EventFiringWebDriver
@@ -84,11 +101,14 @@ public static void initialize() throws IOException {
 	driver.manage().window().maximize();
 	driver.manage().timeouts().pageLoadTimeout(Long.parseLong(prop.getProperty("page_load_timeout")), TimeUnit.SECONDS);
 	driver.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("implicit_wait")), TimeUnit.SECONDS);
+	driver.manage().timeouts().setScriptTimeout(15, TimeUnit.SECONDS);
 	driver.manage().deleteAllCookies();
 	tdriver.set(driver);
-	driver.get(prop.getProperty("url"));
 	js=(JavascriptExecutor) driver;
 	ngDriver=new NgWebDriver(js);
+	driver.get(prop.getProperty("url"));
+	ngDriver.waitForAngularRequestsToFinish();
+	Thread.sleep(3000);
 }
 
 public static synchronized WebDriver getDriver() {
@@ -103,11 +123,13 @@ public static void moveMouseTo(WebElement element) {
 
 public static void dragAndDrop(WebElement source,int xOffset,int yOffset) {
 	action=new Actions(driver);
+	action.moveToElement(source).build().perform();
 	action.dragAndDropBy(source, xOffset, yOffset).build().perform();
 }
 
-public static void dragAndDrop1(WebElement source,WebElement target) {
+public static void dragAndDrop(WebElement source,WebElement target) {
 	action=new Actions(driver);
+	action.moveToElement(source).build().perform();
 	action.dragAndDrop(source, target).build().perform();
 }
 
@@ -115,4 +137,30 @@ public static void waitForVisibilityOfElement(WebElement element) {
 	wait=new WebDriverWait(driver, 30);
 	wait.until(ExpectedConditions.visibilityOf(element));
 }
+public static void waitForElementToBeClickable(WebElement element) {
+	wait=new WebDriverWait(driver, 30);
+	wait.until(ExpectedConditions.elementToBeClickable(element));
+}
+public static void waitForInvisibilityOfElement(WebElement element) {
+	wait=new WebDriverWait(driver, 30);
+	wait.until(ExpectedConditions.invisibilityOf(element));
+}
+public static void javaScriptClick(WebElement element) throws Exception {
+	try {
+		if (element.isEnabled() && element.isDisplayed()) {
+			System.out.println("Clicking on element with using java script click");
+
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+		} else {
+			System.out.println("Unable to click on element");
+		}
+	} catch (StaleElementReferenceException e) {
+		System.out.println("Element is not attached to the page document "+ e.getStackTrace());
+	} catch (NoSuchElementException e) {
+		System.out.println("Element was not found in DOM "+ e.getStackTrace());
+	} catch (Exception e) {
+		System.out.println("Unable to click on element "+ e.getStackTrace());
+	}
+}
+
 }

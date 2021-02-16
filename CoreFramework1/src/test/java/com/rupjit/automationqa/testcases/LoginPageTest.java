@@ -13,12 +13,9 @@ import com.rupjit.automationqa.pages.LoginPage;
 
 public class LoginPageTest extends TestBase{
 	LoginPage loginpage;
-	/*public LoginPageTest() {
-		super();
-	}*/
-
+	
 	@BeforeMethod
-	public void setUp() throws IOException {
+	public void setUp() throws IOException, InterruptedException {
 		initialize();
 		loginpage=new LoginPage(); 
 	}
@@ -29,7 +26,7 @@ public class LoginPageTest extends TestBase{
 		Assert.assertEquals(title, "Arena");
 	}
 	@Test
-	public void loginTest() {
+	public void loginTest() throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		ngDriver.waitForAngularRequestsToFinish();
 	}
