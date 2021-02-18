@@ -17,26 +17,28 @@ import com.rupjit.automationqa.pages.ShellActionPage.EnterValueAt;
 @Listeners({TestAllureListener.class})
 public class WorkflowDesignerPageTest extends TestBase{
 	WorkflowDesignerPage wfDesignerPage;
-	
 	@BeforeMethod
-	public void setUp() throws Exception {
-		initialize();
-		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
+	public void setup() throws Exception {
+		//wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
 	}
+	
 	@Test
-	public void dragShellAction() throws InterruptedException {
+	public void dragShellAction() throws Exception {
+		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
 		wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
 		String shellActionName=new ShellActionPage().getActionName();
 		Assert.assertEquals("Shell Action", shellActionName,"Action name is not matching");
 	}
 	@Test
-	public void dragPythonAction() {
+	public void dragPythonAction() throws Exception {
+		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
 		wfDesignerPage.dragWfActionToWfDesigner(WfAction.pythonAction);
 		String pythonActionName=new PythonActionPage().getActionName();
-		Assert.assertEquals("Python Action", pythonActionName,"Action name is not matching");
+		Assert.assertEquals("PythonAction", pythonActionName,"Action name is not matching");
 	}
 	@Test
-	public void saveShellWf() throws InterruptedException {
+	public void saveShellWf() throws Exception {
+		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
 		wfDesignerPage.dragWfActionToWfDesigner(WfAction.start);
 		wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
 		ShellActionPage sh=new ShellActionPage();
@@ -51,10 +53,5 @@ public class WorkflowDesignerPageTest extends TestBase{
 		String Wfname="UIAUTO_Shell"+nanos+threadId;
 		wfDesignerPage.setWfName(Wfname);
 		//wfDesignerPage.clickSaveWFButton();
-	}
-	
-	@AfterMethod
-	public void closeBrowser() {
-		driver.quit();
 	}
 }

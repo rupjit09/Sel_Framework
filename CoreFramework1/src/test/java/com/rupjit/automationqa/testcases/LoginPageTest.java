@@ -16,23 +16,29 @@ public class LoginPageTest extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() throws IOException, InterruptedException {
-		initialize();
-		loginpage=new LoginPage(); 
+		//initialize();
+		//loginpage=new LoginPage(); 
 	}
 	
 	@Test
 	public void loginPageTitleTest() {
+		loginpage=new LoginPage(); 
 		String title=loginpage.validateLoginPageTitle();
 		Assert.assertEquals(title, "Arena");
 	}
 	@Test
 	public void loginTest() throws Exception {
+		loginpage=new LoginPage(); 
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
-		ngDriver.waitForAngularRequestsToFinish();
+		new TestBase().getNgWebDriverInstance().waitForAngularRequestsToFinish();
 	}
 	
-	@AfterMethod
-	public void closeBrowser() {
-		driver.quit();
+	@Test
+	public void loginFailTest() throws Exception {
+		loginpage=new LoginPage(); 
+		loginpage.login("admin", "noasd");
+		Assert.assertEquals("A", "B");
+		new TestBase().getNgWebDriverInstance().waitForAngularRequestsToFinish();
 	}
+	
 }

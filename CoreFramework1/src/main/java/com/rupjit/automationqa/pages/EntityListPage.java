@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.rupjit.automationqa.base.DriverFactory;
 import com.rupjit.automationqa.base.TestBase;
 
 public class EntityListPage  extends TestBase{
@@ -24,13 +25,14 @@ public class EntityListPage  extends TestBase{
 	WebElement addEntityUploadFile;
 	
 	public EntityListPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(DriverFactory.getInstance().getDriver(), this);
 	}
 	
 	public CreateEntityPage naviagteToCreateEntityPageByForm() {
 		addEntityButton.click();
 		addEntityUsingForm.click();
-		ngDriver.waitForAngularRequestsToFinish();
+		new TestBase().getNgWebDriverInstance().waitForAngularRequestsToFinish();
+		//ngDriver.waitForAngularRequestsToFinish();
 		return new CreateEntityPage();
 	}
 	

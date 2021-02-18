@@ -16,13 +16,16 @@ public class PythonActionFormTest extends TestBase{
 
 	@BeforeMethod
 	public void setUp() throws Exception {
-		initialize();
-		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
-		pythonActionForm=(PythonActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.pythonAction);
+		//initialize();
+		//wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
+		//pythonActionForm=(PythonActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.pythonAction);
 
 	}
 	@Test
-	public void verifyActionName() {
+	public void verifyActionName() throws Exception {
+		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
+		pythonActionForm=(PythonActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.pythonAction);
+
 		String actionName=pythonActionForm.getActionName();
 		Assert.assertEquals(actionName, "Python Action","Wf Action name not matching");
 	}

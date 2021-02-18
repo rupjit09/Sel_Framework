@@ -24,24 +24,30 @@ public class ShellActionFormTest extends TestBase{
 	WorkflowDesignerPage wfDesignerPage;
 	ShellActionPage shellActionForm;
 
-	@BeforeMethod
+	/*@BeforeMethod
 	public void setUp() throws Exception {
 		initialize();
 		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
 		shellActionForm=(ShellActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
 
-	}
+	}*/
 	@Test
 	@Description("Verify the action name displayed")
-	public void verifyActionName() {
+	public void verifyActionName() throws Exception {
+		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
+		shellActionForm=(ShellActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
+
 		String actionName=shellActionForm.getText(GetText.ACTIONNAME);
-		Assert.assertEquals(actionName, "Shell Action","Wf Action name not matching");
+		Assert.assertEquals(actionName, "ShellAction","Wf Action name not matching");
 	}
 	@Test
 	@Description("Verify that OK button is enabled only after filling the mandatary fields")
-	public void verifyOKbuttonEnablement() {
+	public void verifyOKbuttonEnablement() throws Exception {
+		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
+		shellActionForm=(ShellActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
+
 		Assert.assertEquals(shellActionForm.isOKButtonEnabled(),false,"OK button is enabled before passing mangatory fields");
-		shellActionForm.fillText(EnterValueAt.STEPNAME, "StepNameAutomation");
+		//shellActionForm.fillText(EnterValueAt.STEPNAME, "StepNameAutomation");
 		shellActionForm.fillText(EnterValueAt.DESCRIPTION,"Create Via Ui Automation");
 		shellActionForm.fillText(EnterValueAt.SCRIPTCONTENT,"echo \"hello\"");
 		shellActionForm.fillText(EnterValueAt.ARGUMENTS,"arg1 arg2");

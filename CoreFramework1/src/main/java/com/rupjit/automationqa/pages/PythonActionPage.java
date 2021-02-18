@@ -1,10 +1,12 @@
 package com.rupjit.automationqa.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.rupjit.automationqa.base.DriverFactory;
 import com.rupjit.automationqa.base.TestBase;
 
 public class PythonActionPage extends TestBase{
@@ -105,7 +107,7 @@ public class PythonActionPage extends TestBase{
 	
 	
 	public PythonActionPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(DriverFactory.getInstance().getDriver(), this);
 		}
 	
 	public String getActionName() {
@@ -166,7 +168,7 @@ public class PythonActionPage extends TestBase{
 			break;
 		case SCRIPTCONTENT:
 			textFillLocator=ScriptContentTextBox;
-			action.moveToElement(textFillLocator).click().sendKeys(TextToEnter).build().perform();
+			new Actions(DriverFactory.getInstance().getDriver()).moveToElement(textFillLocator).click().sendKeys(TextToEnter).build().perform();
 			break;
 		case ARGUMENTS:
 			textFillLocator=ArgumentTextBox;

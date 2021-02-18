@@ -14,11 +14,14 @@
 		<suite-file path="./suiteB.xml" />
 		<suite-file path="./suiteC.xml" />
 	</suite-files> -->
-	<test name="Testing">
+	<!-- <test name="Testing"> -->
+	<test name="Testing" parallel="methods" thread-count="3">
 		<classes>
-<!-- 			<class name="com.rupjit.automationqa.testcases.LoginPageTest"></class>
-			<class name="com.rupjit.automationqa.testcases.HomePageTest"></class> -->
+			<class name="com.rupjit.automationqa.testcases.LoginPageTest"></class>
+			<class name="com.rupjit.automationqa.testcases.HomePageTest"></class>
 			<class name="com.rupjit.automationqa.testcases.WorkflowDesignerPageTest"></class>
+			<class name="com.rupjit.automationqa.testcases.ShellActionFormTest"></class>
+			<class name="com.rupjit.automationqa.testcases.CreateEntityPageTest"></class>
 		</classes>
 	
 	</test>

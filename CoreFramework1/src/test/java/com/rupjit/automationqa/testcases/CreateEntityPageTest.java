@@ -13,12 +13,13 @@ public class CreateEntityPageTest extends TestBase{
 	CreateEntityPage createEntityPage;
 	@BeforeMethod
 	public void setup() throws Exception {
-		initialize();
-		createEntityPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToEntityListingPage().naviagteToCreateEntityPageByForm();
+		//initialize();
+		//createEntityPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToEntityListingPage().naviagteToCreateEntityPageByForm();
 	}
 	
 	@Test
-	public void verifyBusinessAccordianExpandMinimize() throws InterruptedException {
+	public void verifyBusinessAccordianExpandMinimize() throws Exception {
+		createEntityPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToEntityListingPage().naviagteToCreateEntityPageByForm();
 			if(!createEntityPage.isAccordianExpanded(createEntityPage.BusinessAriaExpanded)) {
 			createEntityPage.clickAccordian(createEntityPage.businessInformationAccordian);
 			}
@@ -30,8 +31,8 @@ public class CreateEntityPageTest extends TestBase{
 	}
 	
 	@Test
-	public void verifyTechnicalInfoAccordianExpandMinimize() throws InterruptedException {
-		
+	public void verifyTechnicalInfoAccordianExpandMinimize() throws Exception {
+		createEntityPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToEntityListingPage().naviagteToCreateEntityPageByForm();	
 		if(createEntityPage.isAccordianExpanded(createEntityPage.BusinessAriaExpanded)) {
 			createEntityPage.clickAccordian(createEntityPage.businessInformationAccordian);
 			}
@@ -46,7 +47,8 @@ public class CreateEntityPageTest extends TestBase{
 	}
 	
 	@Test
-	public void verifyAdvTechInfoAccordianExpandMinimize() throws InterruptedException {
+	public void verifyAdvTechInfoAccordianExpandMinimize() throws Exception {
+		createEntityPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToEntityListingPage().naviagteToCreateEntityPageByForm();
 		if(createEntityPage.isAccordianExpanded(createEntityPage.BusinessAriaExpanded)) {
 			createEntityPage.clickAccordian(createEntityPage.businessInformationAccordian);
 			}
@@ -60,8 +62,4 @@ public class CreateEntityPageTest extends TestBase{
 		
 	}
 	
-	@AfterMethod
-	public void closeBrowser() {
-		driver.quit();
-	}
 }

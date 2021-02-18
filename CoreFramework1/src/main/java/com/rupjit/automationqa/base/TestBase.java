@@ -20,6 +20,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import com.paulhammant.ngwebdriver.NgWebDriver;
 import com.rupjit.automationqa.listeners.WebEventListener;
@@ -37,18 +39,19 @@ public static Xls_Reader Csuitexls;
 public static boolean isInitialized=false;
 
 //
-public static WebDriver driver;
+//public static WebDriver driver;
 public static Properties prop;
-public static JavascriptExecutor js;
-public static NgWebDriver ngDriver;
-public static Actions action;
-public static WebDriverWait wait;
-public static EventFiringWebDriver eventDriver;
-public static WebEventListener eventListener;
-public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
+//public static JavascriptExecutor js;
+//public static NgWebDriver ngDriver;
+//public static Actions action;
+//public static WebDriverWait wait;
+//public static EventFiringWebDriver eventDriver;
+//public static WebEventListener eventListener;
+//public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
+BrowserFactory bf=new BrowserFactory();
 
 
-public static void initialize() throws IOException, InterruptedException {
+public void initialize() throws IOException, InterruptedException {
 	if(!isInitialized) {
 	//initialize logger for logging
 	log=Logger.getLogger("devpinoyLogger");
@@ -68,88 +71,85 @@ public static void initialize() throws IOException, InterruptedException {
 	Csuitexls=new Xls_Reader(System.getProperty("user.dir")+"\\src\\main\\java\\com\\rupjit\\automationqa\\data\\C suite.xlsx");
 	log.debug("XLS files loaded");
 	isInitialized=true;
-	}
+	}}
 	
-	//
-	String browsername=prop.getProperty("browser");
-	if(browsername.equalsIgnoreCase("chrome"))
-	{
-		WebDriverManager.chromedriver().setup();
-		ChromeOptions options=new ChromeOptions();
-		options.addArguments("enable-automation");
-		//options.addArguments("--headless");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-browser-side-navigation");
-		options.addArguments("--disable-extensions");
-		options.addArguments("--dns-prefetch-disable");
-		options.addArguments("--disable-gpu");
-		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-		driver = new ChromeDriver(options);
-	}else if(browsername.equalsIgnoreCase("firefox")) {
-		WebDriverManager.firefoxdriver().setup();
-		FirefoxOptions options = new FirefoxOptions().addPreference("security.insecure_field_warning.contextual.enabled", false);
-		driver = new FirefoxDriver(options);
-		
-	}
-	eventDriver =new EventFiringWebDriver(driver);
+	@BeforeMethod
+	public void LaunchApplication() throws IOException, InterruptedException {
+		initialize();
+		String browser=prop.getProperty("browser");
+		String url=prop.getProperty("url");
+		DriverFactory.getInstance().setDriver(new BrowserFactory().createBrowserInstance(browser));
+		WebDriver driver=DriverFactory.getInstance().getDriver();
+	EventFiringWebDriver eventDriver =new EventFiringWebDriver(driver);
 	//Create object of WebEventListener class to register it with EventFiringWebDriver
-	eventListener=new WebEventListener();
+	WebEventListener eventListener=new WebEventListener();
 	eventDriver.register(eventListener);
 	driver=eventDriver;
-	
 	driver.manage().window().maximize();
 	driver.manage().timeouts().pageLoadTimeout(Long.parseLong(prop.getProperty("page_load_timeout")), TimeUnit.SECONDS);
 	driver.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("implicit_wait")), TimeUnit.SECONDS);
-	driver.manage().timeouts().setScriptTimeout(15, TimeUnit.SECONDS);
+	driver.manage().timeouts().setScriptTimeout(120, TimeUnit.SECONDS);
 	driver.manage().deleteAllCookies();
-	tdriver.set(driver);
-	js=(JavascriptExecutor) driver;
-	ngDriver=new NgWebDriver(js);
-	driver.get(prop.getProperty("url"));
-	ngDriver.waitForAngularRequestsToFinish();
+	//js=(JavascriptExecutor) driver;
+	//ngDriver=new NgWebDriver(js);
+	driver.navigate().to(url);
+	//ngDriver.waitForAngularRequestsToFinish();
+	getNgWebDriverInstance().waitForAngularRequestsToFinish();
 	Thread.sleep(3000);
 }
+	
+	@AfterMethod
+	public void tearDown() {
+		DriverFactory.getInstance().closeBrowser();
+	}
 
-public static synchronized WebDriver getDriver() {
+/*public static synchronized WebDriver getDriver() {
 	return tdriver.get();
+}*/
+
+public JavascriptExecutor getJSExecutorInstance() {
+	JavascriptExecutor js=(JavascriptExecutor) DriverFactory.getInstance().getDriver();
+	return js;
+}
+public NgWebDriver getNgWebDriverInstance() {
+	NgWebDriver ngDriver=new NgWebDriver(getJSExecutorInstance());
+	return ngDriver;
+}
+public void moveMouseTo(WebElement element) {
+	Actions action1=new Actions(DriverFactory.getInstance().getDriver());
+	action1.moveToElement(element).build().perform();
 }
 
-
-public static void moveMouseTo(WebElement element) {
-	action=new Actions(driver);
-	action.moveToElement(element).build().perform();
+public void dragAndDrop(WebElement source,int xOffset,int yOffset) {
+	Actions action2=new Actions(DriverFactory.getInstance().getDriver());
+	action2.moveToElement(source).build().perform();
+	action2.dragAndDropBy(source, xOffset, yOffset).build().perform();
 }
 
-public static void dragAndDrop(WebElement source,int xOffset,int yOffset) {
-	action=new Actions(driver);
-	action.moveToElement(source).build().perform();
-	action.dragAndDropBy(source, xOffset, yOffset).build().perform();
+public void dragAndDrop(WebElement source,WebElement target) {
+	Actions action3=new Actions(DriverFactory.getInstance().getDriver());
+	action3.moveToElement(source).build().perform();
+	action3.dragAndDrop(source, target).build().perform();
 }
 
-public static void dragAndDrop(WebElement source,WebElement target) {
-	action=new Actions(driver);
-	action.moveToElement(source).build().perform();
-	action.dragAndDrop(source, target).build().perform();
+public void waitForVisibilityOfElement(WebElement element) {
+	WebDriverWait wait1=new WebDriverWait(DriverFactory.getInstance().getDriver(), 30);
+	wait1.until(ExpectedConditions.visibilityOf(element));
 }
-
-public static void waitForVisibilityOfElement(WebElement element) {
-	wait=new WebDriverWait(driver, 30);
-	wait.until(ExpectedConditions.visibilityOf(element));
+public void waitForElementToBeClickable(WebElement element) {
+	WebDriverWait wait2=new WebDriverWait(DriverFactory.getInstance().getDriver(), 30);
+	wait2.until(ExpectedConditions.elementToBeClickable(element));
 }
-public static void waitForElementToBeClickable(WebElement element) {
-	wait=new WebDriverWait(driver, 30);
-	wait.until(ExpectedConditions.elementToBeClickable(element));
+public void waitForInvisibilityOfElement(WebElement element) {
+	WebDriverWait wait3=new WebDriverWait(DriverFactory.getInstance().getDriver(), 30);
+	wait3.until(ExpectedConditions.invisibilityOf(element));
 }
-public static void waitForInvisibilityOfElement(WebElement element) {
-	wait=new WebDriverWait(driver, 30);
-	wait.until(ExpectedConditions.invisibilityOf(element));
-}
-public static void javaScriptClick(WebElement element) throws Exception {
+public void javaScriptClick(WebElement element) throws Exception {
 	try {
 		if (element.isEnabled() && element.isDisplayed()) {
 			System.out.println("Clicking on element with using java script click");
 
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+			((JavascriptExecutor) DriverFactory.getInstance().getDriver()).executeScript("arguments[0].click();", element);
 		} else {
 			System.out.println("Unable to click on element");
 		}

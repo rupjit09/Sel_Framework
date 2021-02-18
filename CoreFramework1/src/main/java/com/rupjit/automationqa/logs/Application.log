@@ -1,58 +1,38 @@
-06/12/2020 22:36:55 devpinoyLogger Loading Config.properties file...
-06/12/2020 22:36:55 devpinoyLogger Config.properties file loaded
-06/12/2020 22:36:55 devpinoyLogger Loading XLS file...
-06/12/2020 22:36:56 devpinoyLogger XLS files loaded
-06/12/2020 22:37:05 devpinoyLogger Before navigating to: 'http://192.168.2.32:9090'
-06/12/2020 22:37:23 devpinoyLogger Navigated to:'http://192.168.2.32:9090'
-06/12/2020 22:37:23 devpinoyLogger Trying to find Element By : By.id: username
-06/12/2020 22:37:23 devpinoyLogger Found Element By : By.id: username
-06/12/2020 22:37:23 devpinoyLogger Trying to find Element By : By.id: password
-06/12/2020 22:37:23 devpinoyLogger Found Element By : By.id: password
-06/12/2020 22:37:23 devpinoyLogger Trying to find Element By : By.xpath: //button[contains(text(),'Login')]
-06/12/2020 22:37:23 devpinoyLogger Found Element By : By.xpath: //button[contains(text(),'Login')]
-06/12/2020 22:37:23 devpinoyLogger Trying to click on: [[ChromeDriver: chrome on WINDOWS (b90a0a5d9ea76da73adc1fbd7b327c39)] -> xpath: //button[contains(text(),'Login')]]
-06/12/2020 22:37:24 devpinoyLogger Clicked on: [[ChromeDriver: chrome on WINDOWS (b90a0a5d9ea76da73adc1fbd7b327c39)] -> xpath: //button[contains(text(),'Login')]]
-06/12/2020 22:37:24 devpinoyLogger Trying to find Element By : By.xpath: //ul[@id='zdp-menu']//descendant::div[contains(text(),'CONSUME')]
-06/12/2020 22:37:26 devpinoyLogger Found Element By : By.xpath: //ul[@id='zdp-menu']//descendant::div[contains(text(),'CONSUME')]
-06/12/2020 22:37:26 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:27 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:27 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:27 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:28 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:28 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:28 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:28 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:29 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:29 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:29 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:29 devpinoyLogger Found Element By : By.xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]
-06/12/2020 22:37:29 devpinoyLogger Trying to click on: [[ChromeDriver: chrome on WINDOWS (b90a0a5d9ea76da73adc1fbd7b327c39)] -> xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]]
-06/12/2020 22:37:29 devpinoyLogger Clicked on: [[ChromeDriver: chrome on WINDOWS (b90a0a5d9ea76da73adc1fbd7b327c39)] -> xpath: //div[@class='submenu on-load']//descendant::span[contains(text(),'Manage Workflow')]]
-06/12/2020 22:37:37 devpinoyLogger Trying to find Element By : By.xpath: //button[contains(text(),'WORKFLOW')]
-06/12/2020 22:37:38 devpinoyLogger Found Element By : By.xpath: //button[contains(text(),'WORKFLOW')]
-06/12/2020 22:37:38 devpinoyLogger Trying to click on: [[ChromeDriver: chrome on WINDOWS (b90a0a5d9ea76da73adc1fbd7b327c39)] -> xpath: //button[contains(text(),'WORKFLOW')]]
-06/12/2020 22:37:38 devpinoyLogger Clicked on: [[ChromeDriver: chrome on WINDOWS (b90a0a5d9ea76da73adc1fbd7b327c39)] -> xpath: //button[contains(text(),'WORKFLOW')]]
-06/12/2020 22:37:38 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='controls-wrapper']//descendant::div[@class='control-element zi-popular']
-06/12/2020 22:37:38 devpinoyLogger Found Element By : By.xpath: //div[@class='controls-wrapper']//descendant::div[@class='control-element zi-popular']
-06/12/2020 22:37:38 devpinoyLogger Trying to find Element By : By.xpath: //div[contains(text(),'Shell')]
-06/12/2020 22:37:39 devpinoyLogger Found Element By : By.xpath: //div[contains(text(),'Shell')]
-06/12/2020 22:37:39 devpinoyLogger Trying to find Element By : By.xpath: //div[contains(text(),'Shell')]
-06/12/2020 22:37:39 devpinoyLogger Found Element By : By.xpath: //div[contains(text(),'Shell')]
-06/12/2020 22:37:41 devpinoyLogger Trying to find Element By : By.xpath: //z-wf-action-property[@class='ng-star-inserted']//button[contains(@class,'submit')]
-06/12/2020 22:37:41 devpinoyLogger Found Element By : By.xpath: //z-wf-action-property[@class='ng-star-inserted']//button[contains(@class,'submit')]
-06/12/2020 22:37:41 devpinoyLogger Trying to find Element By : By.xpath: //input[@formcontrolname='stepName']
-06/12/2020 22:37:41 devpinoyLogger Found Element By : By.xpath: //input[@formcontrolname='stepName']
-06/12/2020 22:37:41 devpinoyLogger Trying to find Element By : By.xpath: //input[@formcontrolname='stepName']
-06/12/2020 22:37:41 devpinoyLogger Found Element By : By.xpath: //input[@formcontrolname='stepName']
-06/12/2020 22:37:41 devpinoyLogger Trying to find Element By : By.xpath: //textarea[contains(@class,'ui-inputtextarea-resizable')]
-06/12/2020 22:37:41 devpinoyLogger Found Element By : By.xpath: //textarea[contains(@class,'ui-inputtextarea-resizable')]
-06/12/2020 22:37:42 devpinoyLogger Trying to find Element By : By.xpath: //textarea[contains(@class,'ui-inputtextarea-resizable')]
-06/12/2020 22:37:42 devpinoyLogger Found Element By : By.xpath: //textarea[contains(@class,'ui-inputtextarea-resizable')]
-06/12/2020 22:37:42 devpinoyLogger Trying to find Element By : By.xpath: //div[@class='ace_content']
-06/12/2020 22:37:42 devpinoyLogger Found Element By : By.xpath: //div[@class='ace_content']
-06/12/2020 22:37:43 devpinoyLogger Trying to find Element By : By.xpath: //div[contains(text(),'Arguments:')]//following-sibling::input[@type='text']
-06/12/2020 22:37:43 devpinoyLogger Found Element By : By.xpath: //div[contains(text(),'Arguments:')]//following-sibling::input[@type='text']
-06/12/2020 22:37:43 devpinoyLogger Trying to find Element By : By.xpath: //div[contains(text(),'Arguments:')]//following-sibling::input[@type='text']
-06/12/2020 22:37:43 devpinoyLogger Found Element By : By.xpath: //div[contains(text(),'Arguments:')]//following-sibling::input[@type='text']
-06/12/2020 22:37:43 devpinoyLogger Trying to find Element By : By.xpath: //z-wf-action-property[@class='ng-star-inserted']//button[contains(@class,'submit')]
-06/12/2020 22:37:43 devpinoyLogger Found Element By : By.xpath: //z-wf-action-property[@class='ng-star-inserted']//button[contains(@class,'submit')]
+18/02/2021 18:41:28 devpinoyLogger Loading Config.properties file...
+18/02/2021 18:41:28 devpinoyLogger Loading Config.properties file...
+18/02/2021 18:41:28 devpinoyLogger Loading Config.properties file...
+18/02/2021 18:41:28 devpinoyLogger Config.properties file loaded
+18/02/2021 18:41:28 devpinoyLogger Config.properties file loaded
+18/02/2021 18:41:28 devpinoyLogger Loading XLS file...
+18/02/2021 18:41:28 devpinoyLogger Config.properties file loaded
+18/02/2021 18:41:28 devpinoyLogger Loading XLS file...
+18/02/2021 18:41:28 devpinoyLogger Loading XLS file...
+18/02/2021 18:41:30 devpinoyLogger XLS files loaded
+18/02/2021 18:41:30 devpinoyLogger XLS files loaded
+18/02/2021 18:41:30 devpinoyLogger XLS files loaded
+18/02/2021 18:41:36 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:41:36 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:41:36 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:42:42 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:42:49 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:43:05 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:43:05 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:43:10 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:43:17 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:43:28 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:43:34 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:43:36 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:43:39 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:43:52 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:43:53 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:43:59 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:44:03 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:44:08 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:44:25 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:44:27 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:44:29 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:45:01 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:45:04 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:45:11 devpinoyLogger Navigated to:'http://192.168.2.213:8080'
+18/02/2021 18:45:35 devpinoyLogger Before navigating to: 'http://192.168.2.213:8080'
+18/02/2021 18:45:43 devpinoyLogger Navigated to:'http://192.168.2.213:8080'

@@ -19,25 +19,23 @@ public class HomePageTest extends TestBase{
 	HomePage homepage;
 	@BeforeMethod
 	public void setup() throws Exception {
-		initialize();
-		homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
+		//homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
 	}
 	
 	@Test(priority=1)
-	public void verifyNavigateToEntityListingPage() {
+	public void verifyNavigateToEntityListingPage() throws Exception {
+		homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
 		homepage.navigateToEntityListingPage();
-		System.out.println("Page Titl is "+driver.getTitle());
+		System.out.println("Page Titl is ");
 	}
 	
 	@Test(priority=2)
-	public void verifyNavigateToWorkflowListingPage() {
+	public void verifyNavigateToWorkflowListingPage() throws Exception {
+		homepage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password"));
 		homepage.navigateToWorkflowListingPage();
-		System.out.println("Page Titl is "+driver.getTitle());
+		System.out.println("Page Titl is ");
 	}
 	
 	
-	@AfterMethod
-	public void closeBrowser() {
-		driver.quit();
-	}
+	
 }

@@ -7,9 +7,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.rupjit.automationqa.base.DriverFactory;
 import com.rupjit.automationqa.base.TestBase;
 
 
@@ -56,7 +58,7 @@ public class WorkflowDesignerPage extends TestBase{
 
 	
 	public WorkflowDesignerPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(DriverFactory.getInstance().getDriver(), this);
 	}
 	
 	
@@ -72,7 +74,7 @@ public class WorkflowDesignerPage extends TestBase{
 				waitForVisibilityOfElement(StartAction);
 			}
 			dragAndDrop(StartAction, 150, 10 );
-			ngDriver.waitForAngularRequestsToFinish();
+			new TestBase().getNgWebDriverInstance().waitForAngularRequestsToFinish();
 			return new ShellActionPage();
 		}
 		
@@ -109,7 +111,7 @@ public class WorkflowDesignerPage extends TestBase{
 	}
 	
 	private static HashMap<String, WebElement> getNodeLocation(String actionName){
-		WebElement action=driver.findElement(By.xpath("//*[contains(@class,'zdp_"+actionName+"')][1]"));
+		WebElement action=DriverFactory.getInstance().getDriver().findElement(By.xpath("//*[contains(@class,'zdp_"+actionName+"')][1]"));
 		int xnode1=Integer.parseInt(action.getAttribute("x"));
 		int ynode1=Integer.parseInt(action.getAttribute("y"));
 		int cx_input=xnode1;
@@ -119,11 +121,11 @@ public class WorkflowDesignerPage extends TestBase{
 		HashMap<String,WebElement> ports=new HashMap<String, WebElement>();
 
 		if(!actionName.equalsIgnoreCase("start")) {
-		WebElement inputPort=driver.findElement(By.xpath("//*[@class='draw2d_InputPort' and @cx='"+cx_input+"' and @cy='"+cy_input+"']"));
+		WebElement inputPort=DriverFactory.getInstance().getDriver().findElement(By.xpath("//*[@class='draw2d_InputPort' and @cx='"+cx_input+"' and @cy='"+cy_input+"']"));
 		ports.put("inputPort", inputPort);
 		}
 		if(!actionName.equalsIgnoreCase("stop")) {
-		WebElement outputPort=driver.findElement(By.xpath("//*[@class='draw2d_OutputPort' and @cx='"+cx_output+"' and @cy='"+cy_output+"']"));
+		WebElement outputPort=DriverFactory.getInstance().getDriver().findElement(By.xpath("//*[@class='draw2d_OutputPort' and @cx='"+cx_output+"' and @cy='"+cy_output+"']"));
 		ports.put("outputPort", outputPort);
 		}
 		return ports;				
@@ -136,6 +138,7 @@ public class WorkflowDesignerPage extends TestBase{
 	}
 	
 	public void setWfName(String Wfname) throws InterruptedException {
+		Actions action= new Actions(DriverFactory.getInstance().getDriver());
 		action.moveToElement(wfNameBox).click().build().perform();
 		action.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0061')).build().perform();
 		Thread.sleep(2000);
@@ -147,6 +150,6 @@ public class WorkflowDesignerPage extends TestBase{
 	
 	public void clickSaveWFButton() {
 		saveWfButton.click();
-		ngDriver.waitForAngularRequestsToFinish();
+		new TestBase().getNgWebDriverInstance().waitForAngularRequestsToFinish();
 	}
 }

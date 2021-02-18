@@ -12,7 +12,7 @@ public class PageSuiteA extends TestBase{
 
 	@BeforeSuite
 	//Runmode of 
-	public void checkSuiteSkip() throws IOException {
+	public void checkSuiteSkip() throws IOException, InterruptedException {
 		initialize();
 		log.debug("Checking the runmode of SuiteA");
 		if(!TestUtil.isSuiteRunnable(suitexls, "A Suite")) {

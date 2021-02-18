@@ -11,7 +11,7 @@ import com.rupjit.automationqa.util.TestUtil;
 public class PageSuiteB extends TestBase{
 	@BeforeSuite
 	//Runmode of 
-	public void checkSuiteSkip() throws IOException {
+	public void checkSuiteSkip() throws IOException, InterruptedException {
 		initialize();
 		log.debug("Checking the runmode of SuiteB");
 		if(!TestUtil.isSuiteRunnable(suitexls, "B Suite")) {

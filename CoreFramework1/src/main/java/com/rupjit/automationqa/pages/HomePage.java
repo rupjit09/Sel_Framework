@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.rupjit.automationqa.base.DriverFactory;
 import com.rupjit.automationqa.base.TestBase;
 
 public class HomePage  extends TestBase{
@@ -59,15 +60,16 @@ public class HomePage  extends TestBase{
 		WebElement ManageWorkflow;
 		
 	public HomePage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(DriverFactory.getInstance().getDriver(), this);
 	}
 	
 	public String HomePageTitle() {
-		return driver.getTitle();
+		return DriverFactory.getInstance().getDriver().getTitle();
 	}
 	
 	public EntityListPage navigateToEntityListingPage() {
-		moveMouseTo(catalog);
+		new TestBase().moveMouseTo(catalog);
+		//moveMouseTo(catalog);
 		try {
 		waitForVisibilityOfElement(Entities);
 		}catch(TimeoutException e){
@@ -75,7 +77,7 @@ public class HomePage  extends TestBase{
 			waitForVisibilityOfElement(Entities);
 		}
 		Entities.click();
-		ngDriver.waitForAngularRequestsToFinish();
+		new TestBase().getNgWebDriverInstance().waitForAngularRequestsToFinish();
 		return new EntityListPage();
 	}
 	
@@ -88,7 +90,7 @@ public class HomePage  extends TestBase{
 			waitForVisibilityOfElement(ManageWorkflow);
 		}
 		ManageWorkflow.click();
-		ngDriver.waitForAngularRequestsToFinish();
+		new TestBase().getNgWebDriverInstance().waitForAngularRequestsToFinish();
 		return new WorkflowListingPage();
 	}
 }

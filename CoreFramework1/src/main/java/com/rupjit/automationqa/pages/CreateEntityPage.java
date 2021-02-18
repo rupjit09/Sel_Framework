@@ -3,6 +3,8 @@ package com.rupjit.automationqa.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import com.rupjit.automationqa.base.DriverFactory;
 import com.rupjit.automationqa.base.TestBase;
 
 public class CreateEntityPage extends TestBase{
@@ -40,7 +42,7 @@ public class CreateEntityPage extends TestBase{
 	
 	
 	public CreateEntityPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(DriverFactory.getInstance().getDriver(), this);
 	}
 	
 	public Boolean isAccordianExpanded(WebElement accordion) {

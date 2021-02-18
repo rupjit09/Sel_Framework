@@ -10,6 +10,7 @@ import org.testng.ITestResult;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.rupjit.automationqa.base.DriverFactory;
 import com.rupjit.automationqa.base.TestBase;
 import com.rupjit.automationqa.util.TestUtil;
 
@@ -43,7 +44,7 @@ public class TestAllureListener implements ITestListener {
 
 	public void onStart(ITestContext iTestContext) {
 		//System.out.println("I am in onStart method " + iTestContext.getName());
-		iTestContext.setAttribute("WebDriver", TestBase.getDriver());
+		iTestContext.setAttribute("WebDriver", DriverFactory.getInstance().getDriver());
 	}
 
 	public void onFinish(ITestContext iTestContext) {
@@ -60,7 +61,7 @@ public class TestAllureListener implements ITestListener {
 
 	public void onTestFailure(ITestResult iTestResult) {
 		Object testClass = iTestResult.getInstance();
-		WebDriver driver = TestBase.getDriver();
+		WebDriver driver = DriverFactory.getInstance().getDriver();
 		// Allure ScreenShotRobot and SaveTestLog
 		if (driver instanceof WebDriver) {
 			saveScreenshotPNG(driver);
