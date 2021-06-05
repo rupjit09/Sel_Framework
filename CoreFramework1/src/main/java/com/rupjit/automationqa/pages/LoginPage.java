@@ -22,7 +22,7 @@ public class LoginPage extends TestBase{
 	
 	
 	public LoginPage() {
-		PageFactory.initElements(DriverFactory.getInstance().getDriver(), this);
+		PageFactory.initElements(getEventFiringDriver(DriverFactory.getInstance().getDriver()), this);
 	}
 	
 	public String validateLoginPageTitle() {

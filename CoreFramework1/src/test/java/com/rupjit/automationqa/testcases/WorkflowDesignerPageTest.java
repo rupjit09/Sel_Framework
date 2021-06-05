@@ -34,7 +34,7 @@ public class WorkflowDesignerPageTest extends TestBase{
 		wfDesignerPage=new LoginPage().login(prop.getProperty("username"), prop.getProperty("password")).navigateToWorkflowListingPage().navigateToWfDesignerPage();
 		wfDesignerPage.dragWfActionToWfDesigner(WfAction.pythonAction);
 		String pythonActionName=new PythonActionPage().getActionName();
-		Assert.assertEquals("PythonAction", pythonActionName,"Action name is not matching");
+		Assert.assertEquals("Python Action", pythonActionName,"Action name is not matching");
 	}
 	@Test
 	public void saveShellWf() throws Exception {

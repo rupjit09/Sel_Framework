@@ -17,9 +17,7 @@ import com.rupjit.automationqa.util.TestUtil;
 import io.qameta.allure.Attachment;
 
 public class TestAllureListener implements ITestListener {
-	
-	ExtentReports extent;
-	ExtentTest logger;
+
 	private static String getTestMethodName(ITestResult iTestResult) {
 		return iTestResult.getMethod().getConstructorOrMethod().getName();
 	}

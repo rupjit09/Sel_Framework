@@ -1,6 +1,6 @@
 package com.rupjit.automationqa.listeners;
 
-import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
+
 
 /*************************************** PURPOSE **********************************
 - This class implements the WebDriverEventListener, which is included under events.
@@ -10,8 +10,6 @@ Do not call any of these methods, instead these methods will be invoked automati
 as an when the action done (click, findBy etc). 
 */
 
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +17,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import com.rupjit.automationqa.base.TestBase;
-import com.rupjit.automationqa.util.TestUtil;
 
 
 

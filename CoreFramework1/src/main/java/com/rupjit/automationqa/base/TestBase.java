@@ -107,6 +107,15 @@ public void initialize() throws IOException, InterruptedException {
 	return tdriver.get();
 }*/
 
+public EventFiringWebDriver getEventFiringDriver(WebDriver driver) {
+	EventFiringWebDriver eventDriver =new EventFiringWebDriver(driver);
+	//Create object of WebEventListener class to register it with EventFiringWebDriver
+	WebEventListener eventListener=new WebEventListener();
+	eventDriver.register(eventListener);
+	//driver=eventDriver;
+	return eventDriver;
+	}
+
 public JavascriptExecutor getJSExecutorInstance() {
 	JavascriptExecutor js=(JavascriptExecutor) DriverFactory.getInstance().getDriver();
 	return js;
@@ -116,32 +125,32 @@ public NgWebDriver getNgWebDriverInstance() {
 	return ngDriver;
 }
 public void moveMouseTo(WebElement element) {
-	Actions action1=new Actions(DriverFactory.getInstance().getDriver());
+	Actions action1=new Actions(getEventFiringDriver(DriverFactory.getInstance().getDriver()));
 	action1.moveToElement(element).build().perform();
 }
 
 public void dragAndDrop(WebElement source,int xOffset,int yOffset) {
-	Actions action2=new Actions(DriverFactory.getInstance().getDriver());
+	Actions action2=new Actions(getEventFiringDriver(DriverFactory.getInstance().getDriver()));
 	action2.moveToElement(source).build().perform();
 	action2.dragAndDropBy(source, xOffset, yOffset).build().perform();
 }
 
 public void dragAndDrop(WebElement source,WebElement target) {
-	Actions action3=new Actions(DriverFactory.getInstance().getDriver());
+	Actions action3=new Actions(getEventFiringDriver(DriverFactory.getInstance().getDriver()));
 	action3.moveToElement(source).build().perform();
 	action3.dragAndDrop(source, target).build().perform();
 }
 
 public void waitForVisibilityOfElement(WebElement element) {
-	WebDriverWait wait1=new WebDriverWait(DriverFactory.getInstance().getDriver(), 30);
+	WebDriverWait wait1=new WebDriverWait(getEventFiringDriver(DriverFactory.getInstance().getDriver()), 30);
 	wait1.until(ExpectedConditions.visibilityOf(element));
 }
 public void waitForElementToBeClickable(WebElement element) {
-	WebDriverWait wait2=new WebDriverWait(DriverFactory.getInstance().getDriver(), 30);
+	WebDriverWait wait2=new WebDriverWait(getEventFiringDriver(DriverFactory.getInstance().getDriver()), 30);
 	wait2.until(ExpectedConditions.elementToBeClickable(element));
 }
 public void waitForInvisibilityOfElement(WebElement element) {
-	WebDriverWait wait3=new WebDriverWait(DriverFactory.getInstance().getDriver(), 30);
+	WebDriverWait wait3=new WebDriverWait(getEventFiringDriver(DriverFactory.getInstance().getDriver()), 30);
 	wait3.until(ExpectedConditions.invisibilityOf(element));
 }
 public void javaScriptClick(WebElement element) throws Exception {

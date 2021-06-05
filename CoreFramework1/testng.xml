@@ -16,7 +16,7 @@
 	</suite-files> -->
 	<!-- <test name="Testing"> -->
 	<test name="Testing" parallel="methods" thread-count="3">
-		<classes>
+		<classes >
 			<class name="com.rupjit.automationqa.testcases.LoginPageTest"></class>
 			<class name="com.rupjit.automationqa.testcases.HomePageTest"></class>
 			<class name="com.rupjit.automationqa.testcases.WorkflowDesignerPageTest"></class>

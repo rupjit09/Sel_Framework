@@ -38,7 +38,7 @@ public class ShellActionFormTest extends TestBase{
 		shellActionForm=(ShellActionPage) wfDesignerPage.dragWfActionToWfDesigner(WfAction.shellAction);
 
 		String actionName=shellActionForm.getText(GetText.ACTIONNAME);
-		Assert.assertEquals(actionName, "ShellAction","Wf Action name not matching");
+		Assert.assertEquals(actionName, "Shell Action","Wf Action name not matching");
 	}
 	@Test
 	@Description("Verify that OK button is enabled only after filling the mandatary fields")

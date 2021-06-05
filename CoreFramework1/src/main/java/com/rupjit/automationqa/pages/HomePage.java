@@ -60,7 +60,7 @@ public class HomePage  extends TestBase{
 		WebElement ManageWorkflow;
 		
 	public HomePage() {
-		PageFactory.initElements(DriverFactory.getInstance().getDriver(), this);
+		PageFactory.initElements(getEventFiringDriver(DriverFactory.getInstance().getDriver()), this);
 	}
 	
 	public String HomePageTitle() {
